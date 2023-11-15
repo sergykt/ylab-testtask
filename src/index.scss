@@ -52,6 +52,10 @@
   gap: 30px;
   box-shadow: 0px 0px 5px 2px rgba(27, 33, 37, 0.2);
 
+  @media (max-width: 576px) {
+    padding: 40px 20px;
+  }
+
   &__title {
     font-size: 24px;
     font-weight: 700;
@@ -175,6 +179,7 @@ body {
 
 .main {
   flex: 1 1;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .075);
 }
 
 .login {
@@ -184,4 +189,73 @@ body {
   }
 }
 
-.footer {}
+.popup {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  background-color: rgba(100, 100, 100, 0.8);
+  transition: all 0.3s ease-in-out;
+
+  &__body {
+    margin: 70px auto 0 auto;
+    max-width: 500px;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: var(--white);
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 0px 5px 2px rgba(27, 33, 37, 0.2);
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 20px 0 20px 0;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 20px;
+    width: 20px;
+    border: none;
+    outline: none;
+    background: url('./img/close-button.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &_active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.footer {
+  background-color: var(--white);
+
+  &__text {
+    padding: 0;
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    text-align: right;
+  }
+}

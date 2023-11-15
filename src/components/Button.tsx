@@ -1,15 +1,11 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
+import { IButtonProps } from '../types';
 
-type buttonProps = {
-  children?: ReactNode;
-  className?: string;
-};
-
-const Button: FC<buttonProps> = ({ children, className }) => {
+const Button: FC<IButtonProps> = ({ children, className, ...rest }) => {
   const buttonClass = classNames('button', className);
   return (
-    <button className={buttonClass}>
+    <button className={buttonClass} {...rest}>
       {children}
     </button>
   );
