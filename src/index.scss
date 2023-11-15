@@ -1,0 +1,164 @@
+// variables
+
+:root {
+  --background-color: #F8F9F9;
+  --main-color: #17202A;
+  --container-gutter: 40px;
+  --header-height: 60px;
+  --white: #FFFFFF;
+  --black: #000000;
+  --pink: #f9758f;
+  --purple: #AF7AC5;
+  --gray: #EAEDED;
+
+  @media (max-width: 768px) {
+    --container-gutter: 20px;
+  }
+}
+
+// components
+
+.button {
+  margin: 0;
+  padding: 12px 20px;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+  background-color: var(--pink);
+  color: var(--white);
+  min-width: 100px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--purple);
+    box-shadow: 0px 0px 6px 2px rgba(34, 60, 80, 0.2);
+  }
+}
+
+.form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  background-color: var(--white);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  &__control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    border-bottom: 2px solid var(--gray);
+    padding: 0 5px 5px 5px;
+    box-sizing: border-box;
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 5px 0;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  &__label {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0;
+  }
+}
+
+// general
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.15;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--main-color);
+  background-color: var(--background-color);
+}
+
+#root {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--container-gutter);
+  box-sizing: border-box;
+}
+
+// blocks
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .075);
+  background-color: var(--white);
+
+  &__container {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo-link {
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__logo {
+    vertical-align: middle;
+  }
+}
+
+.main {
+  flex: 1 1;
+}
+
+.login {
+  &__container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+.footer {}
