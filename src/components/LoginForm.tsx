@@ -1,9 +1,10 @@
 import { FC, useRef, useEffect, useState } from 'react';
+import Button from './Button';
 
 const LoginForm: FC = () => {
   return (
     <form className="form">
-      <p className="form__title">Login</p>
+      <p className="form__title">Sign In</p>
       <div className="form__control">
         <label htmlFor="email" className="form__label">Email</label>
         <input
@@ -37,6 +38,7 @@ const LoginForm: FC = () => {
           required
         />
       </div>
+      <Button className="form__button">Submit</Button>
     </form >
   );
 };

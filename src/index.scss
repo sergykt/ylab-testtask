@@ -1,15 +1,17 @@
 // variables
 
 :root {
+  --container-gutter: 40px;
+  --header-height: 70px;
+
   --background-color: #F8F9F9;
   --main-color: #17202A;
-  --container-gutter: 40px;
-  --header-height: 60px;
   --white: #FFFFFF;
   --black: #000000;
   --pink: #f9758f;
   --purple: #AF7AC5;
   --gray: #EAEDED;
+  --dark-gray: #424949;
 
   @media (max-width: 768px) {
     --container-gutter: 20px;
@@ -41,13 +43,14 @@
 .form {
   max-width: 500px;
   margin: 0 auto;
-  padding: 20px 40px;
+  padding: 60px 40px;
   background-color: var(--white);
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  box-shadow: 0px 0px 5px 2px rgba(27, 33, 37, 0.2);
 
   &__title {
     font-size: 24px;
@@ -66,12 +69,28 @@
   }
 
   &__input {
-    width: 100%;
+    background-color: transparent;
     border: none;
     margin: 0;
-    padding: 5px 0;
+    padding: 5px 0 5px 30px;
+    box-sizing: border-box;
     font-size: 14px;
     line-height: 1;
+    color: var(--dark-gray);
+
+    &#email {
+      background-image: url('./img/email-ico.png');
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-position: left center;
+    }
+
+    &#password, &#confirmPassword {
+      background-image: url('./img/password-ico.png');
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-position: left center;
+    }
   }
 
   &__label {
@@ -79,6 +98,10 @@
     font-weight: 700;
     line-height: 1;
     padding: 0;
+  }
+
+  &__button {
+    margin-top: 15px;
   }
 }
 
@@ -130,8 +153,8 @@ body {
   background-color: var(--white);
 
   &__container {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
