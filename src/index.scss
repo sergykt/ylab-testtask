@@ -329,11 +329,10 @@ body {
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+    border: 2px solid transparent;
 
     &:hover {
-      -webkit-transform: scale(1.15);
-      -ms-transform: scale(1.15);
-      transform: scale(1.15);
+      border-color: var(--main-color);
     }
   }
 
@@ -361,4 +360,12 @@ body {
     font-style: italic;
     text-align: right;
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--main-color);
 }
