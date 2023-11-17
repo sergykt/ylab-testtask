@@ -14,9 +14,9 @@ const Popup: FC<IPopupProps> = ({ onHide, isActive }) => {
   return (
     <div className={popupClass}>
       <div className="popup__body">
-        <h3 className="popup__title">Registration completed!</h3>
+        <h3 className="popup__title">Success!</h3>
         <p className="popup__text">
-          We have sent you an email with instructions to activate your account.
+          Welcome aboard! We're thrilled to have you as part of our community. Your login was successful, and you're now all set to explore and enjoy our platform. If you have any questions or need assistance, don't hesitate to reach out to us. Happy exploring!
         </p>
         <button className="popup__close-button" onClick={onHide} type="button" />
       </div>

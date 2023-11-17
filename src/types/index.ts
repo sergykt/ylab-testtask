@@ -11,5 +11,4 @@ export interface IContainerProps extends HTMLAttributes<HTMLDivElement> {
 export interface IUser {
   email: string;
   password: string;
-  confirmPassword: string;
 }

@@ -10,7 +10,7 @@ const Header: FC = () => {
           <img src="/img/logo.png" alt="logo" width={50} height={50} className="header__logo" />
         </a>
         <Button>
-          Sign In
+          Log In
         </Button>
       </Container>
     </header>

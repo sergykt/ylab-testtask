@@ -4,17 +4,12 @@ import { IUser } from '../types';
 const apiPath = 'https://ylab-testtask-server.vercel.app/api';
 
 const userPaths = {
-  create: () => [apiPath, 'users', 'signup'].join('/'),
-  verify: () => [apiPath, 'users', 'verify'].join('/')
+  create: () => [apiPath, 'users', 'login'].join('/'),
 }
 
 class UserService {
-  async create(values: IUser) {
-    await axios.post(userPaths.create(), values);
-  }
-
-  async verify(token: string) {
-    await axios.post(userPaths.verify(), { token });
+  async login(values: IUser) {
+    await axios.post<void>(userPaths.create(), values);
   }
 }
 
