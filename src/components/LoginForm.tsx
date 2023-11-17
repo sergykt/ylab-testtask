@@ -60,6 +60,9 @@ const LoginForm: FC = () => {
             ref={inputRef}
             required
           />
+          {formik.touched.email && formik.errors.email && (
+            <p className="form__invalid-tooltip">{formik.errors.email}</p>
+          )}
         </div>
         <div className="form__control">
           <label htmlFor="password" className="form__label">Password</label>
@@ -75,6 +78,9 @@ const LoginForm: FC = () => {
             disabled={formik.isSubmitting}
             required
           />
+           {formik.touched.password && formik.errors.password && (
+            <p className="form__invalid-tooltip">{formik.errors.password}</p>
+          )}
         </div>
         <Button className="form__button" type="submit" disabled={formik.isSubmitting}>Submit</Button>
       </form >
