@@ -9,23 +9,12 @@ import Modal from './components/Modal';
 const App: FC = () => {
   const { isModalActive } = useModal();
 
-  const handleResize = () => {
-    const vh = window.innerHeight / 100;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  };
-
   useEffect(() => {
-    window.addEventListener('resize', handleResize);
-
     if (isModalActive) {
       document.documentElement.style.overflow = 'hidden';
     } else {
       document.documentElement.style.overflow = 'auto';
     }
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
   }, [isModalActive]);
 
   return (
