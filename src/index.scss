@@ -219,9 +219,8 @@ body {
 }
 
 .wrapper {
-  min-height: calc(var(--vh, 1vh) * 100);
-  min-height: fill-available;
-  min-height: -webkit-fill-available;
+  //min-height: calc(var(--vh, 1vh) * 100);
+  min-height: 100dvh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
