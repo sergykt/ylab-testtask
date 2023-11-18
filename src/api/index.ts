@@ -9,7 +9,7 @@ const userPaths = {
 
 class UserService {
   async login(values: IUser) {
-    await axios.post<void>(userPaths.create(), values);
+    await axios.post<void>(userPaths.create(), values, { timeout: 5000 });
   }
 }
 

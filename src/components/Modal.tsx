@@ -1,21 +1,19 @@
 import { FC, MouseEvent, useEffect } from 'react';
+import { useModal } from '../hooks';
 import classNames from 'classnames';
 
-interface IPopupProps {
-  onHide: () => void;
-  isActive: boolean;
-}
-
-const Popup: FC<IPopupProps> = ({ onHide, isActive }) => {
-  const handleBackgroundClick = (e: MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) {
-      onHide();
-    }
-  };
+const Modal: FC = () => {
+  const { isModalActive, closeModal } = useModal();
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
-      onHide();
+      closeModal();
+    }
+  };
+
+  const handleBackgroundClick = (e: MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
     }
   };
 
@@ -27,7 +25,7 @@ const Popup: FC<IPopupProps> = ({ onHide, isActive }) => {
   }, []);
 
   const popupClass = classNames('popup', {
-    'popup_active': isActive,
+    'popup_active': isModalActive,
   });
 
   return (
@@ -37,10 +35,10 @@ const Popup: FC<IPopupProps> = ({ onHide, isActive }) => {
         <p className="popup__text">
           Welcome aboard! We're thrilled to have you as part of our community. Your login was successful, and you're now all set to explore and enjoy our platform. If you have any questions or need assistance, don't hesitate to reach out to us. Happy exploring!
         </p>
-        <button className="popup__close-button" onClick={onHide} type="button" aria-label="close" />
+        <button className="popup__close-button" onClick={closeModal} type="button" aria-label="close" />
       </div>
     </div>
   );
 };
 
-export default Popup;
+export default Modal;

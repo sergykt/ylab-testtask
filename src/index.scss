@@ -3,8 +3,10 @@
 :root {
   --container-gutter: 40px;
   --header-height: 70px;
+  --vh: 1vh;
 
   --background-color: #F8F9F9;
+  --modal-background: rgba(100, 100, 100, 0.8);
   --main-color: #17202A;
   --white: #FFFFFF;
   --black: #000000;
@@ -105,7 +107,7 @@
     width: 100%;
     gap: 8px;
     border-bottom: 2px solid var(--gray);
-    padding: 0 5px 5px 5px;
+    padding: 0 0px 5px 0px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     position: relative;
@@ -136,6 +138,11 @@
       background-size: 20px;
       background-position: left center;
     }
+
+    &:disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
   }
 
   &__label {
@@ -143,29 +150,65 @@
     font-weight: 700;
     line-height: 1;
     padding: 0;
+    cursor: pointer;
+  }
+
+  &__check {
+    align-self: flex-start;
+    position: relative;
+  }
+
+  &__check-label {
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 400;
+    cursor: pointer;
+    user-select: none;
+
+    svg {
+      display: inline;
+      vertical-align: middle;
+      height: 14px;
+      width: 14px;
+      border: 1px solid var(--dark-gray);
+      margin-right: 10px;
+      fill: none;
+      background-color: transparent;
+      border-radius: 3px;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  &__check-input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
   }
 
   &__button {
-    margin-top: 15px;
+    margin-top: 5px;
   }
 
   &__invalid-tooltip {
     position: absolute;
-    bottom: -35px;
+    bottom: -20px;
     left: 5px;
+    margin: 0;
     font-size: 12px;
     color: red;
   }
 }
 
-// general
-
-html {
-  height: 100%;
+.form__check-input:checked + .form__check-label svg {
+  background-color: var(--pink);
+  border-color: var(--pink);
+  fill: var(--white);
 }
 
+// general
+
 body {
-  height: 100%;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 14px;
   line-height: 1.15;
@@ -175,12 +218,8 @@ body {
   background-color: var(--background-color);
 }
 
-#root {
-  height: 100%;
-}
-
 .wrapper {
-  min-height: 100%;
+  min-height: calc(var(--vh, 1vh) * 100);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -273,13 +312,15 @@ body {
   padding: 0 var(--container-gutter);
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
-  background-color: rgba(100, 100, 100, 0.8);
+  background-color: var(--modal-background);
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   &__body {
-    margin: 70px auto 0 auto;
+    margin: 70px auto 20px auto;
     max-width: 500px;
     padding: 15px 0 25px 0;
     background-color: var(--white);
