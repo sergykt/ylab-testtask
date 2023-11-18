@@ -200,7 +200,7 @@
   }
 }
 
-.form__check-input:checked + .form__check-label svg {
+.form__check-input:checked+.form__check-label svg {
   background-color: var(--pink);
   border-color: var(--pink);
   fill: var(--white);
@@ -220,6 +220,8 @@ body {
 
 .wrapper {
   min-height: calc(var(--vh, 1vh) * 100);
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

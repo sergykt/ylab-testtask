@@ -394,7 +394,8 @@ button {
  * Delete button highlighting
  */
 
-button:hover, button:active {
+button:hover,
+button:active {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -402,7 +403,19 @@ button:hover, button:active {
  * Delete link highlighting
  */
 
-a:hover, a:active {
+a:hover,
+a:active {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/**
+
+/**
+ * Delete label highlighting
+ */
+
+label:hover,
+label:active {
   -webkit-tap-highlight-color: transparent;
 }
 
