@@ -1,4 +1,4 @@
-import { FC, useRef, useEffect } from 'react';
+import { FC, useRef, useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useModal } from '../hooks';
@@ -14,6 +14,9 @@ const validationSchema = Yup.object({
 const LoginForm: FC = () => {
   const { openModal } = useModal();
   const inputRef = useRef<HTMLInputElement>(null);
+  const [isPasswordHidden, setPasswordHidden] = useState<boolean>(true);
+
+  const togglePasswordHidden = () => setPasswordHidden(!isPasswordHidden);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -47,41 +50,55 @@ const LoginForm: FC = () => {
       <h2 className="form__title">Log In</h2>
       <div className="form__control">
         <label htmlFor="email" className="form__label">Email</label>
-        <input
-          className="form__input"
-          name="email"
-          id="email"
-          type="email"
-          placeholder="Type your email"
-          aria-label="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-          disabled={formik.isSubmitting}
-          ref={inputRef}
-          autoComplete="email"
-          required
-        />
+        <div className="form__input-wrapper">
+          <div className="form__input-ico" id="email-ico" />
+          <input
+            className="form__input"
+            name="email"
+            id="email"
+            type="email"
+            placeholder="Type your email"
+            aria-label="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+            disabled={formik.isSubmitting}
+            ref={inputRef}
+            autoComplete="email"
+            required
+          />
+        </div>
         {formik.touched.email && formik.errors.email && (
           <p className="form__invalid-tooltip">{formik.errors.email}</p>
         )}
       </div>
       <div className="form__control">
         <label htmlFor="password" className="form__label">Password</label>
-        <input
-          className="form__input"
-          name="password"
-          id="password"
-          type="password"
-          placeholder="Type your password"
-          aria-label="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-          disabled={formik.isSubmitting}
-          autoComplete="off"
-          required
-        />
+        <div className="form__input-wrapper">
+          <div className="form__input-ico" id="password-ico" />
+          <input
+            className="form__input"
+            name="password"
+            id="password"
+            type={isPasswordHidden ? 'password' : 'text'}
+            placeholder="Type your password"
+            aria-label="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+            disabled={formik.isSubmitting}
+            autoComplete="off"
+            required
+          />
+          {formik.values.password && <button
+            className="form__show-password-btn"
+            type="button"
+            aria-label="show password"
+            onClick={togglePasswordHidden}
+          >
+            {isPasswordHidden ? 'Show' : 'Hide'}
+          </button>}
+        </div>
         {formik.touched.password && formik.errors.password && (
           <p className="form__invalid-tooltip">{formik.errors.password}</p>
         )}
