@@ -142,7 +142,7 @@
     padding: 5px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1;
     color: var(--dark-gray);
 
@@ -153,11 +153,12 @@
   }
 
   &__label {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 1;
     padding: 0;
     cursor: pointer;
+    align-self: flex-start;
   }
 
   &__check {
@@ -167,7 +168,7 @@
   }
 
   &__check-label {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1;
     font-weight: 400;
     cursor: pointer;
@@ -179,8 +180,8 @@
     svg {
       display: inline;
       vertical-align: middle;
-      height: 14px;
-      width: 14px;
+      height: 16px;
+      width: 16px;
       border: 1px solid var(--dark-gray);
       margin-right: 10px;
       fill: none;
@@ -205,10 +206,10 @@
 
   &__invalid-tooltip {
     position: absolute;
-    bottom: -20px;
+    bottom: -22px;
     left: 5px;
     margin: 0;
-    font-size: 12px;
+    font-size: 14px;
     color: var(--red);
   }
 
@@ -218,7 +219,7 @@
     border: none;
     outline: none;
     color: var(--main-color);
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1;
     transition: all 0.2s ease-in-out;
 
